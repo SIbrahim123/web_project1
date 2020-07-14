@@ -1,10 +1,3 @@
-#set DATABASE_URL=postgres://vkwyetmditrtfz:6fe36fec2237fa949b0942677c55d128f291b742329fedaabab08941afb8fae7@ec2-54-86-170-8.compute-1.amazonaws.com:5432/d9he3618n6u3q2
-
-#set FLASK_APP=application.py
-
-#set FLASK_DEBUG=1
-#set API_KEY=3GQrO46MvEYSvD3Ml4dXyA
-
 import os
 import requests
 
