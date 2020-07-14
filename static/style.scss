@@ -1,0 +1,130 @@
+
+%general {
+  text-align: center;
+
+}
+body {
+  font-family: "Tahoma", "Geneva", "Kalimati", "Sans serif";
+  background-position: center;
+  background-repeat: round;
+  background-image: url("sunshine1.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+#top{
+  background-color:  #eff57d;
+}
+.option {
+  border:  1px solid blue;
+  background-color: inherit;
+  text-align: left;
+  border: 1px solid blue;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: fantasy;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.option:hover {
+  background-color: blue;
+  color: #eff57d;
+}
+#menu {
+  background-color: #524382;
+}
+.heading {
+    text-align: center;
+    background-color: #eff57d;
+    font-family: cursive;
+}
+#forward {
+  @extend %general;
+  border: 1px solid blue;
+  margin-left: auto;
+  margin-right: auto;
+  width: 33.3%;
+  padding: 5%;
+  border-radius: .5em;
+  background-color: #f7ff99;
+
+}
+fieldset {
+  border-radius: .5em;
+
+}
+#book_details, #reviews, #your_reviews, #search_result {
+  border: 1px solid blue;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 5%;
+  border-radius: .5em;
+  background-color:  rgba(255, 255, 255, .85);
+
+}
+
+form, .others , #signin, #buttom, #book_details, #your_reviews, #search_result p {
+  @extend %general;
+}
+
+.field, #forward {
+  @extend %general;
+  box-shadow: 10px 10px 10px grey;
+  border:1px solid black;
+  border-radius: .5em;
+}
+#search_result input {
+  border: 1px solid blue;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  padding: 1.5%;
+  border-radius: .5em;
+}
+table {
+  margin-left: auto;
+  margin-right: auto;
+  .left{
+    padding-right: 30px;
+  }
+  .right{
+    padding-left: 30px;
+  }
+}
+%alert {
+  padding: 12px;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  border-width: 2px;
+  border-radius: .3em;
+  border-style: solid;
+  text-align: center;
+  width: 33%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alert-error {
+  @extend %alert;
+  border-color: darkred;
+  background-color: red;
+  color: white;
+}
+
+.alert-info {
+  @extend %alert;
+  border-color: orange;
+  background-color: yellow;
+  color: black;
+}
+.alert-success {
+  @extend %alert;
+  border-color: darkgreen;
+  background-color :#a4f5ba;
+  color: red;
+}

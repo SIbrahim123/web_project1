@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign_in</title>
+  </head>
+  <link href="{{ url_for("static", filename="style.css") }}" rel="stylesheet">
+  <body>
+    <div id="top">
+      <h1 class="heading">DISTRATION</h1>
+      <h3 class="heading">Who else Loves Reading?</h3>
+    <hr>
+    </div>
+      {% for category, message in get_flashed_messages(with_categories=True) %}
+          <div class="alert-{{category}}">{{ message }}</div>
+      {% endfor %}
+    <div id="forward">
+      <h3><p class="others">Sign In</p></h3>
+      <form action="{{ url_for('sign_in') }}" method="POST">
+        <p>
+          <input class="field" name="username" type="text" placeholder="Enter your Username">
+        </p>
+        <p>
+          <input class="field" name="password" type="password" placeholder="Enter your Password">
+        </p>
+        <p>
+          <input class="field"type="submit" value="Sign In">
+        </p>
+        <p>
+          <input class="field" type="reset" value="Cancle">
+        </p>
+      </form>
+      <hr>
+      <div id="buttom">
+        <p>Sign in to your account and continue reading.</p>
+      </div>
+    </div>
+  </body>
+</html>

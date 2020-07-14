@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>create_account.html</title>
+    <link href="{{ url_for("static", filename="style.css") }}" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="top">
+      <h1 class="heading">DISTRATION</h1>
+      <h3 class="heading">Who else Loves Reading?</h3>
+    <hr>
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+        <div class="alert-{{category}}">{{ message }}</div>
+    {% endfor %}
+    <div id="forward">
+      <h3><p class="others">Register</p></h3>
+      <form action="{{ url_for("create_account") }}" method="post">
+        <p>
+          <input class="field" name="fullname" type="text" placeholder="Enter your full name">
+        </p>
+        <p>
+          <input class="field" name="username" type="text" placeholder="Enter a Username">
+        </p>
+        <p>
+          <input class="field" name="password" type="password" placeholder="Enter Password">
+        </p>
+        <p>
+          <input class="field"type="submit" value="Create Account">
+        </p>
+      </form>
+      <p class="others">OR</p>
+      <p class="others">Already have an Account?</p>
+      <p class="field" ><a href="{{ url_for("signin") }}">Sign in</a></p>
+      <p class="others"><input type="reset" value="Cancle"></p>
+    </div>
+    <hr>
+    <div id="buttom">
+      <p>Please note that for you to view the content of this web page you must have to Register</p>
+      <p>OR</p>
+      <p>Sign in if you already have an account.</p>
+    </div>
+  </body>
+</html>

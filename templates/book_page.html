@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Book Page</title>
+    <link href="{{ url_for("static", filename="style.css") }}" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="top">
+      <h1 class="heading">DISTRATION</h1>
+      <h3 class="heading">Who else Loves Reading?</h3>
+
+      <a class="option" href="/logout">Logout</a>
+      <a class="option" href="/profile">Home</a>
+      <a class="option" href="/profile">me</a>
+
+    <hr>
+  </div>
+    <div id="book_details">
+      {% for books in book %}
+          <h3><strong>Details for <em>'{{books.title}}'</em></strong></h3>
+          <p>Author: {{books.author}}</p>
+          <p>Title: {{books.title}}</p>
+          <p>ISBN Number: {{books.isbn}}</p>
+          <p>Publication Year: {{books.pub_year}}</p>
+          <p>--------------------------------------------</p>
+          <p><u>Goodreads Data</u></p>
+          <p>Number of rating: {{r_count}}</p>
+          <p>Average rating: {{avg_score}}</p>
+      {% endfor %}
+          {% for data in goodreads %}
+            <p>Goodreads  no. of rating: {{data}}</p>
+            <p>Goodreads Average rating: {{data}}</p>
+          {% endfor %}
+      <hr>
+    </div>
+    <div id="reviews">
+      {% for books in book %}
+      <h3><strong>Reviews for <em>'{{books.title}}'</em></strong></h3>
+      {% endfor %}
+      <ul>
+        {% for rev in reviews %}
+
+            <li><fieldset>
+              <legend>{{rev.username}}</legend>
+             <p>{{rev.review}}</p>
+              <p>Rating: {{rev.rating}} stars.</p>
+          </fieldset></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <hr>
+    <div id="your_reviews">
+      <p>Drop your reviews in the box below.</p>
+      <p>Please Note that You can only make a Review about a particular book once.</p>
+      {% for books in book %}
+      <form class="" action="{{ url_for("book_page", book_isbn=books.isbn) }}" method="post">
+        <textarea name="review" rows="8" cols="80" placeholder="Write your reviews here."></textarea>
+        <h3>Rating</h3>
+        <input type="radio" name="rating" value="1">1
+        <input type="radio" name="rating" value="2">2
+        <input type="radio" name="rating" value="3">3
+        <input type="radio" name="rating" value="4">4
+        <input type="radio" name="rating" value="5">5
+        <button>Submit</button>
+      </form>
+      {% endfor %}
+    </div>
+  </body>
+</html>

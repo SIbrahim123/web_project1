@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>profile.html</title>
+    <link href="{{ url_for("static", filename="style.css") }}" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="top">
+      <h1 class="heading">DISTRATION</h1>
+      <h3 class="heading">Who else Loves Reading?</h3>
+
+      <a class="option" href="/logout">Logout</a>
+      <a class="option" href="/profile">Home</a>
+      <a class="option" href="/profile">me</a>
+
+    <hr>
+  </div>
+  {% for category, message in get_flashed_messages(with_categories=True) %}
+      <div class="alert-{{category}}">{{ message }}</div>
+  {% endfor %}
+    <h1>Hi {{ name }}</h1>
+    <div id="search_result">
+      <p>Search for your favourite books in the box below.</p>
+      <form action="{{ url_for("books") }}" method="post">
+        <input type="text" name="query" placeholder="Author, title or ISBN"><button>Search</button>
+      </form>
+      <p>{{ hint }}<em>{{ query }}</em></p>
+        <table>
+          <tr>
+            <th class="left">{{title}}</th>
+            <th class="right">{{author}}</th>
+          </tr>
+          {% for book in result %}
+          <tr>
+            <td class="left"><a href="{{ url_for("book_page", book_isbn=book.isbn) }}">{{ book.title }}</a></td>
+            <td class="right">{{ book.author }}</td>
+          <tr>
+          {% endfor %}
+        </table>
+      <p>{{ void }}</p>
+    </div>
+  </body>
+</html>
